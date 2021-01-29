@@ -21,10 +21,7 @@ class PostLoaded extends PostState {
 }
 
 class PostBloc extends Bloc<PostEvent, PostState> {
-  PostBloc(PostState initialState) : super(initialState);
-
-  @override
-  PostState get initialState => PostUnitialized();
+  PostBloc() : super(PostUnitialized());
 
   @override
   Stream<PostState> mapEventToState(PostEvent event) async* {
@@ -41,5 +38,7 @@ class PostBloc extends Bloc<PostEvent, PostState> {
           ? postLoaded.copyWith(hasReachedMax: true)
           : PostLoaded(posts: postLoaded.posts + posts, hasReachedMax: false);
     }
+
+    print(posts);
   }
 }

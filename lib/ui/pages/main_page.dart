@@ -17,6 +17,12 @@ class _MainPageState extends State<MainPage> {
   }
 
   @override
+  void initState() {
+    super.initState();
+    BlocProvider.of<PostBloc>(context).add(PostEvent());
+  }
+
+  @override
   Widget build(BuildContext context) {
     bloc = BlocProvider.of<PostBloc>(context);
     controller.addListener(onScroll);

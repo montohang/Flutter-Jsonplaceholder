@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: BlocProvider<PostBloc>(
-          create: (context) => PostBloc()..add(PostEvent()), child: MainPage()),
+          create: (context) => PostBloc(), child: MainPage()),
     );
   }
 }
